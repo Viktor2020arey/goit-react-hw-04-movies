@@ -1,0 +1,1 @@
+import "./MovieDetailsPage.scss";
