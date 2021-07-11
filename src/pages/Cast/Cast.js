@@ -11,7 +11,6 @@ export default class Cast extends Component {
     const { match } = this.props;
     const { movieId } = match.params;
     API.Cast(movieId).then((Res) => {
-      console.log("Res :", Res);
       this.setState({ cast: Res.data.cast });
     });
   }

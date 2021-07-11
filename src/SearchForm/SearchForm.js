@@ -22,9 +22,15 @@ export default class SearchForm extends Component {
     const { value } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input value={value} onChange={this.onChange} type="text" />
-          <button type="submit">
+        <form onSubmit={this.handleSubmit} className="search-form">
+          <input
+            value={value}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Search film"
+            className="search-input"
+          />
+          <button type="submit" className="search-btn">
             <span>Search film</span>
           </button>
         </form>

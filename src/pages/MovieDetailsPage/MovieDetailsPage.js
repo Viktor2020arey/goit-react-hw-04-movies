@@ -14,9 +14,7 @@ export default class MovieDetailsPage extends Component {
   componentDidMount() {
     const { match } = this.props;
     const { movieId } = match.params;
-    console.log("match", match);
     API.searchInfo(movieId).then((resData) => {
-      console.log("resData", resData);
       this.setState({ searchFilm: resData.data });
     });
   }
@@ -33,23 +31,32 @@ export default class MovieDetailsPage extends Component {
 
     return (
       <>
-        <div>
-          <button onClick={this.onBackButton} type="button">
-            Go back
-          </button>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${searchFilm.poster_path}`}
-            alt=""
-          />
-          <h2>
-            {searchFilm.original_title} ({searchFilm.release_date})
-          </h2>
-          <p>User score: {searchFilm.vote_average * 10}%</p>
-          <h3>Overview</h3>
-          {/* <br /> */}
-          <p>{searchFilm.overview}</p>
-          <h3>Genres</h3>
-          {searchFilm.genres.reduce((acc, el) => `${acc} ${el.name}`, "")}
+        <button onClick={this.onBackButton} type="button" className="back-btn">
+          Go back
+        </button>
+        <div className="details-container">
+          <div className="img-container">
+            <img
+              src={`https://image.tmdb.org/t/p/w500${searchFilm.poster_path}`}
+              alt=""
+            />
+          </div>
+          <div className="info-container">
+            <h2 className="h2-title">
+              {searchFilm.original_title} ({searchFilm.release_date})
+            </h2>
+            <p className="text">User score: {searchFilm.vote_average * 10}%</p>
+            <h3 className="h3-title">Overview</h3>
+            {/* <br /> */}
+            <p className="text">{searchFilm.overview}</p>
+            <h3 className="h3-title">Genres</h3>
+            <p className="text">
+              {searchFilm.genres.reduce((acc, el) => `${acc} ${el.name}`, "")}
+            </p>
+          </div>
+        </div>
+        <div className="additional-container">
+          <h3>Additional information</h3>
           <ul>
             <li>
               <NavLink to={`${url}/cast`}>Cast</NavLink>
@@ -58,6 +65,8 @@ export default class MovieDetailsPage extends Component {
               <NavLink to={`${url}/reviews`}>Reviews</NavLink>
             </li>
           </ul>
+        </div>
+        <div className="Switch-container">
           <Switch>
             <Route exact path={routes.movieCast} component={Cast} />
             <Route exact path={routes.movieReviews} component={Reviews} />

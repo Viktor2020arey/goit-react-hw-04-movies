@@ -17,7 +17,6 @@ export default class Reviews extends Component {
     const { match } = this.props;
     const { movieId } = match.params;
     API.Reviews(movieId).then((Res) => {
-      console.log("Res", Res);
       this.setState({ reviews: Res.data.results });
     });
   }

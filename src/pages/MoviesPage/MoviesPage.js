@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import SearchForm from "../../SearchForm";
 import * as API from "../../services/api";
@@ -20,7 +20,6 @@ export default class MoviesPage extends Component {
   componentDidMount() {
     const { location } = this.props;
     const getMovies = new URLSearchParams(location.search).get("query");
-    console.log("getMovies", getMovies);
     if (!getMovies) {
       return;
     }
@@ -31,7 +30,6 @@ export default class MoviesPage extends Component {
     const { history } = this.props;
     this.setState({ query });
     API.searchMovie(query).then((resData) => {
-      console.log("resData :", resData);
       this.setState({ searchFilms: resData.data.results });
     });
     history.push({
@@ -45,10 +43,12 @@ export default class MoviesPage extends Component {
     return (
       <div>
         <SearchForm onSubmit={this.onSubmit} />
-        <ul>
+        <ul className="movies-list">
           {searchFilms.map((el) => (
-            <li key={el.id}>
-              <Link to={`${routes.movies}/${el.id}`}>{el.title}</Link>
+            <li key={el.id} className="movies-item">
+              <NavLink to={`${routes.movies}/${el.id}`} className="movies-link">
+                {el.title}
+              </NavLink>
             </li>
           ))}
         </ul>

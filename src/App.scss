@@ -1,0 +1,26 @@
+.header {
+  padding: 20px 0;
+
+  border: solid 1px red;
+}
+
+.NavLink {
+  margin-right: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.56);
+  text-transform: uppercase;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
+.NavLink--active {
+  background-color: #ff6b01;
+}
