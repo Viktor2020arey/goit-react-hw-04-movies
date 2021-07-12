@@ -29,7 +29,7 @@ export default class Reviews extends Component {
           <ul className="reviews_list">
             {reviews.map(({ id, author, content }) => (
               <li key={id}>
-                <p className="reviews_author">{author}</p>
+                <p className="reviews_author">Author: {author}</p>
                 <p className="reviews_content">{content}</p>
               </li>
             ))}
