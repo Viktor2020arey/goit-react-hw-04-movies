@@ -1,5 +1,28 @@
-.back-btn {
+.back-btn-container {
+  padding: 15px;
+  text-align: start;
 }
+
+.back-btn {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.56);
+
+  border: 1px solid rgba(0, 0, 0, 0.56);
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    background-color: #ff6b01;
+    border: 1px solid #ff6b01;
+  }
+}
+
 .details-container {
   display: flex;
   text-align: start;
@@ -19,6 +42,14 @@
   text-align: start;
   padding: 15px;
   border-bottom: 1px solid #545454;
+
+  & li {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
 }
 
 .Switch-container {
@@ -34,5 +65,20 @@
   margin-bottom: 20px;
 }
 
-.text {
+// .text {
+// }
+
+.additional-link {
+  color: black;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+
+  &:hover {
+    color: #ff8c00;
+  }
+}
+
+.additional-link-active {
+  color: #ff6b01;
 }

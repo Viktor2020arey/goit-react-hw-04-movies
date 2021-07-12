@@ -6,7 +6,7 @@ import "./Reviews.scss";
 export default class Reviews extends Component {
   static propTypes = {
     match: PropTypes.shape({}).isRequired,
-    movieId: PropTypes.shape({}).isRequired,
+    // movieId: PropTypes.shape({}).isRequired,
   };
 
   state = {
@@ -24,14 +24,20 @@ export default class Reviews extends Component {
   render() {
     const { reviews } = this.state;
     return (
-      <ul>
-        {reviews.map((el) => (
-          <li key={el.id}>
-            <p>{el.author}</p>
-            <p>{el.content}</p>
-          </li>
-        ))}
-      </ul>
+      <>
+        {reviews.length !== 0 ? (
+          <ul className="reviews_list">
+            {reviews.map(({ id, author, content }) => (
+              <li key={id}>
+                <p className="reviews_author">{author}</p>
+                <p className="reviews_content">{content}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="reviews_author text">Not reviews</p>
+        )}
+      </>
     );
   }
 }

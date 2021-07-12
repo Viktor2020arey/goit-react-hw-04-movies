@@ -31,9 +31,16 @@ export default class MovieDetailsPage extends Component {
 
     return (
       <>
-        <button onClick={this.onBackButton} type="button" className="back-btn">
-          Go back
-        </button>
+        <div className="back-btn-container">
+          <button
+            onClick={this.onBackButton}
+            type="button"
+            className="back-btn"
+          >
+            Go back
+          </button>
+        </div>
+
         <div className="details-container">
           <div className="img-container">
             <img
@@ -56,13 +63,25 @@ export default class MovieDetailsPage extends Component {
           </div>
         </div>
         <div className="additional-container">
-          <h3>Additional information</h3>
+          <h3 className="h3-title">Additional information</h3>
           <ul>
             <li>
-              <NavLink to={`${url}/cast`}>Cast</NavLink>
+              <NavLink
+                to={`${url}/cast`}
+                className="additional-link"
+                activeClassName="additional-link-active"
+              >
+                Cast
+              </NavLink>
             </li>
             <li>
-              <NavLink to={`${url}/reviews`}>Reviews</NavLink>
+              <NavLink
+                to={`${url}/reviews`}
+                className="additional-link"
+                activeClassName="additional-link-active"
+              >
+                Reviews
+              </NavLink>
             </li>
           </ul>
         </div>

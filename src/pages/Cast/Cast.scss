@@ -1,0 +1,23 @@
+.cast-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cast-item {
+  flex-basis: calc((100% - 180px) / 6);
+  margin: 15px;
+}
+
+.cast-text-name {
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.cast-text-character {
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+}
